@@ -1,12 +1,9 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
-author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+title: "Factors determining in-person vs online purchases: a logistic regression model"
+author: Kimlin Chin
+thanks: "Code and data are available at: https://github.com/KCtt457/cius-2018-analysis."
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "E-commerce is booming, with more than 80% of Canadians shopping online, and they have spent over 50 billion dollars in 2018. So should certain businesses ditch their in-person services in favour of online? Using data from the 2018 Canadian Internet Use Survey, we developed a logistic regression model to investigate what factors may influence whether a person makes purchases in-person vs online. We find that young tech-savvy adults and men are more likely to make online purchases than in-person. Our findings have implications for business marketing strategies and the decision to expand to online platforms. \\par \\textbf{Keywords:} e-commerce, internet, logistic regression, canadian internet use survey, canada"
 output:
   bookdown::pdf_document2
 toc: FALSE
@@ -17,63 +14,26 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(palmerpenguins)
-
-data <- read.table(here::here("inputs/data/CIUS2018PUMF.txt"), header = TRUE)
 
 ```
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. For instance, Section \@ref(data). R Markdown automatically makes the sections lower case and adds a dash to spaces to generate labels, for instance, Section \@ref(first-discussion-point). 
+<!-- Background, context -->
+With the Internet being ubiquitous, many businesses have entered the realm of e-commerce. From furniture to food, you can buy almost anything you could dream of online these days, with companies like Amazon making billion-dollar profits from their e-commerce services.
 
+So when do we, as consumers, choose to shop in person over online? In this paper we take a deep dive into the data from the 2018 Canadian Internet Use Survey to investigate this question. Specifically we plot graphs of responses to the survey questions which are relevant to our research question, and construct a logistic regression model with a binary dependent variable for whether the individual purchased physical goods online or not, and independent variables for age, gender and technical skill. We find that wanting to see, hold or try on the product before purchasing is the most common reason for individuals to purchase some goods in-person instead of online. Additionally, our model predicts that young tech-savvy adults and men are more likely to make online purchases than in-person. Future work can build upon the proposed model to include other factors, such as proximity to store containing the desired item, by collecting more data, as the unavailability of detailed factors is a limitation of this study.
 
+The rest of the paper has the following structure: Section \@ref(data) describes the data from the 2018 Canadian Internet Use Survey, Section \@ref(model) discusses the logistic regression model, Section \@ref(results) presents the results of our analysis and Section \@ref(discussion) discusses the findings and limitations.
 
 # Data
 
-Our data is of penguins (Figure \@ref(fig:bills)).
+The data is from the 2018 Canadian Internet Use Survey. There are 1,426 features and 13,810 observations in the dataset.
 
-```{r bills, fig.cap="Bills of penguins", echo = FALSE}
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk more about it.
-
-Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can change the height and width so they don't take the whole page?)
-
-```{r billssssss, fig.cap="More bills of penguins", echo = FALSE, fig.width=8, fig.height=4}
-
-# This needs to be about the random data tha tI sasmpled?
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk way more about it. 
-
+`R` [@citeR] and the R package `tidyverse` which was written by @thereferencecanbewhatever were used for data processing and to make the plots and tables.
 
 
 # Model
-
-\begin{equation}
-Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}  (\#eq:bayes)
-\end{equation}
-
-Equation \@ref(eq:bayes) seems useful, eh?
-
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
 
 
 # Results
@@ -82,21 +42,20 @@ We can use maths by including latex between dollar signs, for instance $\theta$.
 
 ## First discussion point
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
-
 ## Second discussion point
 
 ## Third discussion point
 
 ## Weaknesses and next steps
 
-Weaknesses and next steps should also be included.
 
 \newpage
 
 \appendix
 
 # Appendix {-}
+
+## Enhancement
 
 
 # Additional details
